@@ -1,0 +1,31 @@
+{
+  "name": "pastel-dusk",
+  "mode": "dark",
+  "colors": {
+    "background": "#1b2026",
+    "background_dark": "#141b22",
+    "surface": "#242d36",
+    "text": "#e0e8e6",
+    "subtext": "#b3c4c3",
+    "primary": "#72c0d4",
+    "error": "#fc6497"
+  },
+  "ansi": {
+    "black": "#343d43",
+    "red": "#fc6497",
+    "green": "#93d094",
+    "yellow": "#e6d28a",
+    "blue": "#72c0d4",
+    "magenta": "#ca82c4",
+    "cyan": "#7ee9d5",
+    "white": "#b3c4c3",
+    "bright_black": "#556a65",
+    "bright_red": "#ff8fb3",
+    "bright_green": "#aee6ae",
+    "bright_yellow": "#f2e3a9",
+    "bright_blue": "#96d6e6",
+    "bright_magenta": "#e0a3db",
+    "bright_cyan": "#a5f3e4",
+    "bright_white": "#e0e8e6"
+  }
+}
