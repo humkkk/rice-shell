@@ -2,8 +2,7 @@
   "name": "pastel-dusk",
   "mode": "dark",
   "colors": {
-    "background": "#1b2026",
-    "background_dark": "#141b22",
+    "background": "#141b22",
     "surface": "#242d36",
     "text": "#e0e8e6",
     "subtext": "#b3c4c3",

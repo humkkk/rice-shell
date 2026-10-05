@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Início</title>
+<style>
+@font-face {
+  font-family: "JetBrains Mono"; font-weight: 400;
+  src: url("fonts/JetBrainsMono-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "JetBrains Mono"; font-weight: 700;
+  src: url("fonts/JetBrainsMono-Bold.ttf") format("truetype");
+}
+:root {
+  --bg: #141b22;
+  --surface: #242d36;
+  --text: #e0e8e6;
+  --subtext: #b3c4c3;
+  --primary: #72c0d4;
+  --accent: #ca82c4;
+  --clock: #fc6497;
+}
+</style>
+<link rel="stylesheet" href="colors.css">
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg); color: var(--text);
+  font-family: "JetBrains Mono", ui-monospace, "DejaVu Sans Mono", monospace;
+}
+main { width: min(760px, 92vw); text-align: center; padding-bottom: 6vh; }
+#clock { font-size: clamp(3.5rem, 11vw, 6rem); font-weight: 700; letter-spacing: .08em; color: var(--clock); line-height: 1; }
+#date { margin-top: .6rem; color: var(--subtext); font-size: .95rem; }
+form { margin-top: 2rem; }
+input {
+  width: min(480px, 100%); padding: .8rem 1rem;
+  background: var(--surface); color: var(--text);
+  border: 1px solid transparent; border-radius: 8px;
+  font: inherit; text-align: center;
+}
+input::placeholder { color: var(--subtext); opacity: .6; }
+input:focus { outline: none; border-color: var(--primary); }
+.grid { margin-top: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.card { min-width: 160px; background: var(--surface); border-radius: 8px; padding: 1rem 1.2rem; text-align: center; }
+.card h2 { margin: 0 0 .6rem; font-size: .95rem; font-weight: 700; }
+.card a { display: block; padding: .2rem 0; color: var(--primary); text-decoration: none; font-size: .85rem; }
+.card a:hover, .card a:focus-visible { color: var(--accent); outline: none; }
+</style>
+</head>
+<body>
+<main>
+  <div id="clock"></div>
+  <div id="date"></div>
+  <form action="https://duckduckgo.com/" method="get">
+    <input name="q" type="search" placeholder="buscar" autocomplete="off" autofocus>
+  </form>
+  <div class="grid" id="grid"></div>
+</main>
+
+<script>
+// Edite os grupos e links aqui: "Grupo": [["Nome", "url"], ...]
+const LINKS = {
+  "Entretenimento": [["YouTube", "https://www.youtube.com"], ["Spotify", "https://open.spotify.com"], ["Twitch", "https://www.twitch.tv"]],
+  "Estudo":         [["GitHub", "https://github.com"], ["ArchWiki", "https://wiki.archlinux.org"], ["Hyprland", "https://wiki.hypr.land"]],
+  "Criativo":       [["Wallhaven", "https://wallhaven.cc"], ["Pinterest", "https://www.pinterest.com"], ["Dafont", "https://www.dafont.com"]],
+  "Outros":         [["Reddit", "https://www.reddit.com"], ["Gmail", "https://mail.google.com"]]
+};
+
+const grid = document.getElementById("grid");
+for (const [group, items] of Object.entries(LINKS)) {
+  const card = document.createElement("div");
+  card.className = "card";
+  const title = document.createElement("h2");
+  title.textContent = group;
+  card.appendChild(title);
+  for (const [name, url] of items) {
+    const a = document.createElement("a");
+    a.href = url;
+    a.textContent = name;
+    card.appendChild(a);
+  }
+  grid.appendChild(card);
+}
+
+const clock = document.getElementById("clock");
+const date = document.getElementById("date");
+function tick() {
+  const d = new Date();
+  clock.textContent = d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+  date.textContent = d.toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long" });
+}
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
