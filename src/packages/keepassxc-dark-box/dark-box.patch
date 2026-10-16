@@ -1,0 +1,28 @@
+diff --git a/src/gui/styles/base/basestyle.qss b/src/gui/styles/base/basestyle.qss
+index d5211e90..2d60834f 100644
+--- a/src/gui/styles/base/basestyle.qss
++++ b/src/gui/styles/base/basestyle.qss
+@@ -40,8 +40,8 @@ EntryPreviewWidget *[blendIn="true"]
+ }
+ 
+ DatabaseOpenWidget #centralStack, DatabaseOpenWidget #publicSummaryLabel {
+-    border: 1px solid palette(mid);
+-    background: palette(light);
++    border: none;
++    background: palette(window);
+ }
+ 
+ QGroupBox {
+diff --git a/src/gui/styles/base/classicstyle.qss b/src/gui/styles/base/classicstyle.qss
+index 72308f39..38be4c37 100644
+--- a/src/gui/styles/base/classicstyle.qss
++++ b/src/gui/styles/base/classicstyle.qss
+@@ -1,6 +1,6 @@
+ DatabaseOpenWidget #centralStack, DatabaseOpenWidget #publicSummaryLabel {
+-    border: 2px groove palette(mid);
+-    background: palette(light);
++    border: none;
++    background: palette(window);
+ }
+ 
+ QToolTip {

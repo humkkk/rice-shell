@@ -1,0 +1,6 @@
+src/
+pkg/
+keepassxc/
+keepassxc-pkg/
+*.pkg.tar.zst
+*.log
