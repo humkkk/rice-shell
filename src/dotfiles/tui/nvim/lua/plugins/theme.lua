@@ -4,7 +4,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("matugen").setup()
+      require("config.theme").restore()
     end,
   },
 }
