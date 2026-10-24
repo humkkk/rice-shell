@@ -42,8 +42,9 @@ _G.__transparency_signal:start(
 	"sigusr1",
 	vim.schedule_wrap(function()
 		vim.defer_fn(function()
-			if vim.g.my_theme == "everforest" then
-				require("config.theme").use("everforest")
+			local theme = vim.g.my_theme
+			if theme and theme ~= "matugen" then
+				require("config.theme").use(theme)
 			else
 				apply_transparency()
 			end

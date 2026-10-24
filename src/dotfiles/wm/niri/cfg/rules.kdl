@@ -1,5 +1,6 @@
 window-rule {
-	geometry-corner-radius 25//20 // Set every window radius to 20
+  draw-border-with-background false
+	geometry-corner-radius 25
         clip-to-geometry true
 }
 window-rule {
@@ -8,15 +9,8 @@ window-rule {
 		xray false
 	}
 }
-// Floating Noctalia settings window.
-window-rule {
-	match app-id="dev.noctalia.Noctalia"
-        open-floating true
-        default-column-width { fixed 1080; }
-        default-window-height { fixed 920; }
-}
 
-// if you use steam you will probably like these
+// Steam
 window-rule {
         match app-id="steam"
         exclude title=r#"^[Ss]team$"#
@@ -27,6 +21,14 @@ window-rule {
 	match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
 	default-floating-position x=10 y=10 relative-to="bottom-right"
 	open-focused false
+}
+
+// Noctolia
+window-rule {
+	match app-id="dev.noctalia.Noctalia"
+        open-floating true
+        default-column-width { fixed 1080; }
+        default-window-height { fixed 920; }
 }
 
 layer-rule {
@@ -42,18 +44,38 @@ layer-rule {
         }
 }
 
-	// BLUR CONFIG --
-
-// Opacity for inactive windows
+// BLUR CONFIG --
 window-rule {
     match is-active=false
     exclude app-id="^kitty$"
 
-    opacity 0.85
+    opacity 0.95
 }
 
 window-rule {
     match is-active=true
     exclude app-id="^kitty$"
-    opacity 0.85
+    opacity 0.95
+}
+
+// Apps
+
+// Pip for browser
+window-rule {
+  match app-id=r#"zen$"# title="^Picture-in-Picture$"
+  match app-id=r#"app.zen_browser.zen$"# title="^Picture-in-Picture$"
+  match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+  match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+
+  open-floating true
+}
+
+// Rules for xdg-desktop-portal-gtk
+window-rule {
+    match app-id=r#"xdg-desktop-portal-gtk"#
+
+    open-floating true
+    default-floating-position x=0 y=0
+    min-width 400
+    min-height 600
 }

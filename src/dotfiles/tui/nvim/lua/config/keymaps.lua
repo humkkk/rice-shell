@@ -5,7 +5,7 @@ vim.api.nvim_create_user_command("Theme", function(opts)
 end, {
 	nargs = 1,
 	complete = function()
-		return { "matugen", "everforest" }
+		return require("config.theme").names()
 	end,
 })
 

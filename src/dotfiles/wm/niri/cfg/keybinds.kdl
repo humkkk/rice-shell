@@ -1,21 +1,19 @@
 binds {
 
     Mod+Shift+ESCAPE                     { show-hotkey-overlay; }
+    Mod+Ctrl+Space                       { switch-layout "next"; }
 
     // ─── Applications ───
-    Mod+Q	                        hotkey-overlay-title="Open Terminal: Kitty" { spawn "kitty"; }
-    Mod+B                               hotkey-overlay-title="Open Browser: Librewolf" { spawn "zen-browser"; }
+    Mod+Q   	                          hotkey-overlay-title="Open Terminal: Kitty"       { spawn "kitty"; }
+    Mod+B                               hotkey-overlay-title="Open Browser: Zen Browser"  { spawn "zen-browser"; }
+    Mod+E                               hotkey-overlay-title="File Manager: Nautilus"     { spawn "nautilus"; }
 
-    // --- Noctalia ---
-    Mod+Shift+W                    	hotkey-overlay-title="Open Wallpaper Selector: noctalia wallpaper toggle" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
-    Mod+S                               hotkey-overlay-title="Open Control Center: noctalia controlCenter" { spawn-sh "noctalia msg panel-toggle control-center"; }
-    Mod+Z 	                        hotkey-overlay-title="Open Settings: noctalia settings" { spawn-sh "noctalia msg settings-toggle"; }
-    Mod+Space                    	hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Mod+CTRL+L                          hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "noctalia msg session lock"; }
-    Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "noctalia msg panel-toggle session"; }
-
-    // Please choose your own file manager.
-    Mod+E                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
+    // ─── Noctalia ─── 
+    Mod+Shift+W                        	hotkey-overlay-title="Open Wallpaper Selector: noctalia wallpaper toggle" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+    Mod+Z 	                            hotkey-overlay-title="Open Settings: noctalia settings"                   { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+Space                          	hotkey-overlay-title="Open App Launcher: noctalia launcher"               { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Shift+L                         hotkey-overlay-title="Lock Screen: noctalia lock"                         { spawn-sh "noctalia msg session lock"; }
+    Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu"                 { spawn-sh "noctalia msg panel-toggle session"; }
 
     // ─── Media Controls ───
     XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
@@ -52,10 +50,14 @@ binds {
     Mod+Alt+Down                       { move-window-down; }
     Mod+Alt+J                          { move-window-down; }
 
-    Mod+Shift+Left                      { focus-monitor-left; }
-    Mod+Shift+Right                     { focus-monitor-right; }
-    Mod+Shift+UP                        { focus-monitor-up; }
-    Mod+Shift+Down                      { focus-monitor-down; }
+    Mod+Ctrl+Left                      { focus-monitor-left; }
+    Mod+Ctrl+Right                     { focus-monitor-right; }
+    Mod+Ctrl+UP                        { focus-monitor-up; }
+    Mod+Ctrl+Down                      { focus-monitor-down; }
+    Mod+Ctrl+H                         { focus-monitor-left; }
+    Mod+Ctrl+J                         { focus-monitor-down; }
+    Mod+Ctrl+K                         { focus-monitor-up; }
+    Mod+Ctrl+L                         { focus-monitor-right; }
 
     Mod+Shift+CTRL+Left                 { move-column-to-monitor-left; }
     Mod+Shift+CTRL+Right                { move-column-to-monitor-right; }
