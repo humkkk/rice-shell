@@ -1,0 +1,4 @@
+# Pacotes do AUR (instalados via paru)
+tty-clock
+gowall-bin
+bibata-cursor-theme-bin

@@ -1,0 +1,109 @@
+OutputFolder: "~/HDD/Midia/Pictures/Wallpapers/gowall/"
+
+themes:
+  
+  - name: "noctalia"
+    colors:
+      - "#bfb874" # source_color
+      - "#bfb874" # primary
+      - "#0b0b32" # on_primary
+      - "#3d3b35" # primary_container
+      - "#bfb874" # on_primary_container
+      - "#bfb986" # primary_fixed
+      - "#bfb660" # primary_fixed_dim
+      - "#212019" # on_primary_fixed
+      - "#2c2b20" # on_primary_fixed_variant
+      - "#bfb874" # surface_tint
+      - "#7f83bf" # secondary
+      - "#0b0b32" # on_secondary
+      - "#292b4b" # secondary_container
+      - "#7f83bf" # on_secondary_container
+      - "#868abf" # secondary_fixed
+      - "#6166bf" # secondary_fixed_dim
+      - "#191921" # on_secondary_fixed
+      - "#20212c" # on_secondary_fixed_variant
+      - "#74bf9b" # tertiary
+      - "#0b0b32" # on_tertiary
+      - "#263d40" # tertiary_container
+      - "#74bf9b" # on_tertiary_container
+      - "#86bfa4" # tertiary_fixed
+      - "#61bf91" # tertiary_fixed_dim
+      - "#19211d" # on_tertiary_fixed
+      - "#202c26" # on_tertiary_fixed_variant
+      - "#be354a" # error
+      - "#0b0b32" # on_error
+      - "#3c1328" # error_container
+      - "#bf4353" # on_error_container
+      - "#05051a" # surface
+      - "#b6b2b9" # on_surface
+      - "#0d0d22" # surface_variant
+      - "#5d6087" # on_surface_variant
+      - "#03030d" # surface_dim
+      - "#1a1a43" # surface_bright
+      - "#07071b" # surface_container_lowest
+      - "#09091d" # surface_container_low
+      - "#0d0d22" # surface_container
+      - "#191947" # surface_container_high
+      - "#191947" # surface_container_highest
+      - "#191947" # outline
+      - "#191947" # outline_variant
+      - "#05051a" # shadow
+      - "#74bf9b" # hover
+      - "#0b0b32" # on_hover
+      - "#000000" # scrim
+      - "#aaaaae" # inverse_surface
+      - "#1b1b1e" # inverse_on_surface
+      - "#8a7d0f" # inverse_primary
+      - "#05051a" # background
+      - "#b6b2b9" # on_background
+      - "#b6b2b9" # terminal_foreground
+      - "#05051a" # terminal_background
+      - "#bfb874"
+
+  - name: "gruvbox-material-hard"
+    colors:
+      - "#a9b665"
+      - "#a9b665"
+      - "#1d2021"
+      - "#474d35"
+      - "#b3c16f"
+      - "#ebf4be"
+      - "#dbe996"
+      - "#2a2c21"
+      - "#383b2b"
+      - "#a9b665"
+      - "#e78a4e"
+      - "#1d2021"
+      - "#593f2e"
+      - "#f99a5e"
+      - "#f6d2bc"
+      - "#f0b58f"
+      - "#2c2521"
+      - "#3b312b"
+      - "#89b482"
+      - "#1d2021"
+      - "#3d4c3e"
+      - "#96c28f"
+      - "#c5f4be"
+      - "#a1e996"
+      - "#222c21"
+      - "#2d3b2b"
+      - "#ea6962"
+      - "#1d2021"
+      - "#5a3534"
+      - "#ff877e"
+      - "#1d2021"
+      - "#131516"
+      - "#474747"
+      - "#1f2122"
+      - "#222424"
+      - "#282828"
+      - "#323232"
+      - "#7daea3"
+      - "#1d2021"
+      - "#000000"
+      - "#e3e7e8"
+      - "#242728"
+      - "#899933"
+      - "#1d2021"
+      - "#d4be98"

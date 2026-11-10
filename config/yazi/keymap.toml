@@ -1,0 +1,14 @@
+[[mgr.prepend_keymap]]
+on   = "<Enter>"
+run  = "plugin play-media"
+desc = "Tocar mídia no mpv (ou abrir normalmente)"
+
+[[mgr.prepend_keymap]]
+on   = "/"
+run  = "plugin smart-search"
+desc = "Busca por palavras em qualquer ordem"
+
+[[mgr.prepend_keymap]]
+on = [ "u" ]
+run = "plugin play-media"
+desc = "Alternar/Tocar mídia com o mpv sincronizado"

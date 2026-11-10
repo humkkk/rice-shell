@@ -1,0 +1,107 @@
+//  APPEARANCE  ════════════════════════════════════════════════════════════
+
+// Rounded Corners
+window-rule {
+    draw-border-with-background false
+    geometry-corner-radius 15
+    clip-to-geometry true
+}
+
+// Blur (xray barato em tudo, menos jogos)
+window-rule {
+    exclude app-id=r#"^steam_app_"#
+    background-effect { blur true; xray true; }
+}
+
+// Opacidade (menos terminal, jogos, mpv e Blender)
+window-rule {
+    exclude app-id="^kitty$"
+    exclude app-id=r#"^steam_app_"#
+    exclude app-id="^yazi-media-player$"
+    exclude app-id="^blender$"
+    exclude app-id="^mpv$"
+    opacity 0.95
+}
+
+//  LAYER RULES  ════════════════════════════════════════════════════════════
+
+// Rofi
+layer-rule {
+    match namespace="^rofi$"
+    geometry-corner-radius 8
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+// Noctalia
+layer-rule {
+    match namespace="^noctalia-wallpaper"
+    place-within-backdrop true
+}
+layer-rule {
+    match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+    background-effect { xray false; blur false; }
+}
+
+//  APPS QUE ABREM MAXIMIZADOS  ════════════════════════════════════════════════════════════
+
+window-rule {
+    match app-id="^freetube$"
+    match app-id="^blender$"
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.localsend\.localsend_app$"#
+    open-maximized true
+}
+
+// Steam: só a janela principal (as demais são flutuantes, veja abaixo)
+window-rule {
+    match app-id="^steam$" title=r#"^[Ss]team$"#
+    open-maximized true
+}
+
+//  APPS FLUTUANTES  ════════════════════════════════════════════════════════════
+
+// Steam (janelas secundárias)
+window-rule {
+    match app-id="steam"
+    exclude title=r#"^[Ss]team$"#
+    open-floating true
+}
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+// Noctalia (janela de settings)
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
+// PiP do navegador
+window-rule {
+    match app-id=r#"(zen|firefox|librewolf)$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Portal GTK
+window-rule {
+    match app-id="xdg-desktop-portal-gtk"
+    open-floating true
+    default-floating-position x=0 y=0
+    min-width 400
+    min-height 600
+}
+
+// MPV via yazi
+window-rule {
+    match app-id="^yazi-media-player$"
+    open-floating true
+    default-column-width { fixed 1600; }
+    default-window-height { fixed 900; }
+}

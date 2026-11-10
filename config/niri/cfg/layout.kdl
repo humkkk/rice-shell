@@ -1,0 +1,12 @@
+layout {
+    gaps 5
+    empty-workspace-above-first
+    background-color "transparent" // necessário para o wallpaper do noctalia
+    focus-ring { 
+      off
+      width 2
+    }
+    border { off; }
+    shadow { on; }
+    struts { left 10; right 10; top 10; bottom 10; }
+}

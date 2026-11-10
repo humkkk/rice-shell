@@ -1,0 +1,32 @@
+[mgr]
+sort_by = "natural"
+sort_reverse = false
+sort_sensitive = true
+sort_dir_first = true
+scrolloff = 5
+
+[preview]
+max_width = 600
+max_height = 600
+image_filter = "triangle"
+image_quality = 60
+cache_dir = "/mnt/SATA/.cache/yazi"
+
+[opener]
+media = [
+    { run = 'mpv %s', desc = "Play with mpv", orphan = true, for = "unix" },
+]
+pdf = [
+    { run = 'zathura %s', desc = "Open with Zathura", orphan = true, for = "unix" },
+]
+
+[open]
+prepend_rules = [
+    { mime = "image/*", use = "media" },
+    { mime = "video/*", use = "media" },
+    { mime = "audio/*", use = "media" },
+    { mime = "application/pdf", use = "pdf" },
+    { url = "*.epub", use = "pdf" },
+    { url = "*.djvu", use = "pdf" },
+    { url = "*.cbz", use = "pdf" },
+]

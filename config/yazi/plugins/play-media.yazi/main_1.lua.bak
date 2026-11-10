@@ -1,0 +1,109 @@
+local emit = ya.emit or ya.mgr_emit or ya.manager_emit
+
+local function kill_existing_mpv()
+    local handle = io.popen("pgrep -f 'yazi-media-player'")
+    if handle then
+        local result = handle:read("*a")
+        handle:close()
+        if result ~= "" then
+            os.execute("pkill -f 'yazi-media-player'")
+            -- Pequena pausa para o sistema liberar o processo de vídeo/áudio
+            os.execute("sleep 0.2")
+            return true
+        end
+    end
+    return false
+end
+
+local get_playlist = ya.sync(function()
+    local folder = cx.active.current
+    local hovered = folder.hovered
+    if not hovered then
+        return nil
+    end
+
+    local media = {}
+    for ext in ("mp4 mkv webm avi mov m4v flv gif jpg jpeg jfif png webp bmp avif tiff"):gmatch("%S+") do
+        media[ext] = true
+    end
+    local function is_media(path)
+        local ext = path:match("%.([^./]+)$")
+        return ext ~= nil and media[ext:lower()] == true
+    end
+
+    local hpath = tostring(hovered.url)
+    if hovered.cha.is_dir or not is_media(hpath) then
+        return { fallback = true }
+    end
+
+    local list, idx = {}, 1
+    for i = 1, #folder.files do
+        local f = folder.files[i]
+        local p = tostring(f.url)
+        if not f.cha.is_dir and is_media(p) then
+            list[#list + 1] = p
+            if p == hpath then
+                idx = #list
+            end
+        end
+    end
+    return { list = list, idx = idx }
+end)
+
+local M = {}
+
+function M:entry()
+    local was_running = kill_existing_mpv()
+    
+    -- Se o mpv já estava aberto e o usuário só queria fechá-lo com o atalho, encerramos aqui.
+    -- Se você quiser que o atalho SEMPRE reabra o vídeo atualizado, comente ou remova as linhas abaixo:
+    -- if was_running then
+    --     return
+    -- end
+
+    local r = get_playlist()
+    if not r or r.fallback then
+        emit("open", {})
+        return
+    end
+
+    local args = {
+        "--hwdec=auto-safe",
+        "--ytdl=no",
+        "--prefetch-playlist=yes",
+        "--loop-file=inf",
+        "--image-display-duration=inf",
+        "--playlist-start=" .. (r.idx - 1),
+        "--no-osc",
+        "--no-osd-bar",
+        "--osd-level=0",
+        "--cursor-autohide=always",
+        "--title=yazi-media-player",
+        "--msg-level=all=error",
+        "--wayland-app-id=yazi-media-player",
+        "--profile=high-quality",
+        "--af=dynaudnorm",
+        "--volume=130",
+        "--volume-max=200",
+        "--ao=pulse",
+        "--",
+    }
+    for _, p in ipairs(r.list) do
+        args[#args + 1] = p
+    end
+
+    local output, err = Command("mpv")
+        :arg(args)
+        :stdin(Command.NULL)
+        :stdout(Command.NULL)
+        :stderr(Command.PIPED)
+        :output()
+
+    if err then
+        ya.notify({ title = "play-media", content = tostring(err), timeout = 8, level = "error" })
+    elseif not output.status.success then
+        ya.notify({ title = "play-media: mpv falhou", content = output.stderr, timeout = 15, level = "error" })
+    end
+end
+
+return M

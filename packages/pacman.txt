@@ -1,0 +1,27 @@
+# Pacotes dos repositórios oficiais (Arch)
+localsend
+git
+base-devel
+niri
+xwayland-satellite
+kitty
+fish
+neovim
+keepassxc
+eza
+zoxide
+fastfetch
+nautilus
+ripgrep
+fd
+tree-sitter-cli
+ttf-jetbrains-mono-nerd
+yazi
+lutris
+librewolf
+qt5ct
+qt6ct
+qt5-wayland
+qt6-wayland
+mpv
+wl-mirror

@@ -1,0 +1,4 @@
+input {
+    focus-follows-mouse
+    workspace-auto-back-and-forth
+}

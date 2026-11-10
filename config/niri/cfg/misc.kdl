@@ -1,0 +1,28 @@
+prefer-no-csd
+screenshot-path null
+spawn-at-startup "noctalia"
+
+hotkey-overlay { skip-at-startup; }
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+}
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_LOGGING_RULES "qt.qpa.wayland=false"
+}
+
+blur { passes 4; offset 1.55; }
+
+debug { honor-xdg-activation-with-invalid-serial; }
