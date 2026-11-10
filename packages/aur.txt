@@ -2,3 +2,7 @@
 tty-clock
 gowall-bin
 bibata-cursor-theme-bin
+nirius
+calcure
+gruvbox-plus-icon-theme
+zeit

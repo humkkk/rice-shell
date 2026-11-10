@@ -25,3 +25,16 @@ qt5-wayland
 qt6-wayland
 mpv
 wl-mirror
+jq
+rofi
+papirus-icon-theme
+blender
+btop
+faugus-launcher
+freetube
+steam
+starship
+zathura
+zathura-pdf-mupdf
+pavucontrol
+ncdu
